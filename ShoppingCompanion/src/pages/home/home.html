@@ -1,14 +1,16 @@
 <ion-header>
   <ion-navbar>
-    <ion-title>
-      Ionic Blank
-    </ion-title>
+    <h3 class="white text-center">Shopping companion</h3>
   </ion-navbar>
 </ion-header>
 
 <ion-content padding>
-  The world is your oyster.
-  <p>
-    If you get lost, the <a href="http://ionicframework.com/docs/v2">docs</a> will be your guide.
-  </p>
+  <div>
+    <button ion-button="">
+      Mes listes de courses
+    </button>
+    <button ion-button="" (click)="navigate_to_add_shopping_list()">
+      Ajouter une liste de course
+    </button>
+  </div>
 </ion-content>
