@@ -32,6 +32,7 @@ export class SaveShoppingListPage {
     } else {
       await this.storage.set(shopping_string, [this.shopping]);
     }
+    alert("La liste a été enregistrée.");
     await this.navCtrl.goToRoot({})
   }
 }
