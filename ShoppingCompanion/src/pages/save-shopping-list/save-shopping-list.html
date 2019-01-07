@@ -1,0 +1,25 @@
+<ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <h3 class="white text-center">Shopping companion</h3>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  <ion-grid>
+    <ion-row>
+      <h3>Informations</h3>
+    </ion-row>
+    <ion-row>
+      <ion-item>
+        <ion-label color="primary">Nom</ion-label>
+        <ion-input [(ngModel)]="shopping.name" placeholder="Nom de la liste"></ion-input>
+      </ion-item>
+      <button (click)="save_list()" icon-only="" ion-button="">
+        <ion-icon name="add"></ion-icon>
+      </button>
+    </ion-row>
+  </ion-grid>
+</ion-content>

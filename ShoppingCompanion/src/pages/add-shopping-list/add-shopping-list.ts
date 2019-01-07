@@ -1,9 +1,10 @@
-import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import {Component} from '@angular/core';
+import {IonicPage, NavController, NavParams} from 'ionic-angular';
 import {Article} from "../../interface/Article";
 import {Shopping} from "../../interface/Shopping";
 import {ArticleProvider} from "../../providers/article/article";
 import {ShoppingProvider} from "../../providers/shopping/shopping";
+import {SaveShoppingListPage} from "../save-shopping-list/save-shopping-list";
 
 /**
  * Generated class for the AddShoppingListPage page.
@@ -33,7 +34,7 @@ export class AddShoppingListPage {
     this.articles_filtered = JSON.parse(JSON.stringify(this.articles));
   }
 
-  search_items(event) : void {
+  search_items(event): void {
     let item_name: string = event.target.value;
     item_name = item_name.toLowerCase();
 
@@ -47,7 +48,7 @@ export class AddShoppingListPage {
     this.articles_filtered.splice(Article.index_of(this.articles_filtered, article), 1);
   }
 
-  remove_from_list(article: Article) : void {
+  remove_from_list(article: Article): void {
     const sort = (articles: Article[]) => {
       return articles.sort((a, b) => {
         if (a.nom < b.nom) return -1;
@@ -62,9 +63,8 @@ export class AddShoppingListPage {
     this.articles_filtered = sort(this.articles_filtered);
   }
 
-  async start_shopping() : Promise<void> {
-    const shopping : Shopping = new Shopping(this.my_articles);
-    //const shopping_sorted : Shopping = await this.shopping_provider.post(shopping);
-    //await this.navCtrl.push(ShoppingPage,{shopping:shopping});
+  async start_shopping(): Promise<void> {
+    const shopping: Shopping = new Shopping(this.my_articles);
+    await this.navCtrl.push(SaveShoppingListPage, {shopping: shopping});
   }
 }

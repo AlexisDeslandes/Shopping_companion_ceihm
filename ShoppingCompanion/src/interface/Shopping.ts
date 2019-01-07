@@ -2,6 +2,7 @@ import {Article} from "./Article";
 
 export class Shopping {
   private articles : Article[];
+  public name : string;
 
   constructor(articles : Article[]){
     this.articles = articles;

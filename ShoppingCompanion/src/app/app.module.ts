@@ -10,6 +10,8 @@ import {AddShoppingListPageModule} from "../pages/add-shopping-list/add-shopping
 import { ArticleProvider } from '../providers/article/article';
 import { ShoppingProvider } from '../providers/shopping/shopping';
 import {HttpClient, HttpClientModule} from "@angular/common/http";
+import {SaveShoppingListPageModule} from "../pages/save-shopping-list/save-shopping-list.module";
+import {IonicStorageModule} from "@ionic/storage";
 
 @NgModule({
   declarations: [
@@ -19,7 +21,9 @@ import {HttpClient, HttpClientModule} from "@angular/common/http";
   imports: [
     HttpClientModule,
     BrowserModule,
+    SaveShoppingListPageModule,
     AddShoppingListPageModule,
+    IonicStorageModule.forRoot(),
     IonicModule.forRoot(MyApp)
   ],
   bootstrap: [IonicApp],
