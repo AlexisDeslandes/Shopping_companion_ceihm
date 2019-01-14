@@ -11,7 +11,7 @@
     </ion-row>
     <ion-row class="row-bot">
       <ion-list>
-        <button ion-item="" *ngFor="let list of shopping.shopping_filtered">
+        <button ion-item="" *ngFor="let list of shopping.shopping_filtered" (click)="start_shopping()" (press)="delete_shopping(list)">
           <ion-icon item-start="" name="basket" color="primary"></ion-icon>
           <ion-label>{{list.name}}</ion-label>
         </button>

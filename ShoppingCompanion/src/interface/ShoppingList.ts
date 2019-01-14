@@ -13,4 +13,11 @@ export class ShoppingList {
     this.shopping_filtered = this.shopping
       .filter(elem => elem.name.toLowerCase().includes(searchString.toLowerCase()));
   }
+
+  delete(list: Shopping) {
+    this.shopping = this.shopping
+      .filter(elem => list.name !== elem.name);
+    this.shopping_filtered = this.shopping_filtered
+      .filter(elem => list.name !== elem.name);
+  }
 }
