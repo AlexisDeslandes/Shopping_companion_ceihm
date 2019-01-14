@@ -1,6 +1,8 @@
 import {Component} from '@angular/core';
 import {IonicPage, NavController, NavParams} from 'ionic-angular';
 import {Shopping} from "../../interface/Shopping";
+import {GuidingPageModule} from "../guiding/guiding.module";
+import {GuidingPage} from "../guiding/guiding";
 
 /**
  * Generated class for the PriorisationPage page.
@@ -28,4 +30,7 @@ export class PriorisationPage {
     this.priorisation = this.options[0];
   }
 
+  start() {
+    this.navCtrl.push(GuidingPage, {shopping: this.shopping, priorisation: this.priorisation});
+  }
 }
