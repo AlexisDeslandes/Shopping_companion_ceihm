@@ -1,0 +1,20 @@
+page-priorisation {
+  ion-grid{
+    height: 100%;
+  }
+
+  ion-row{
+    flex: 1;
+    flex-direction: column;
+  }
+
+  .center{
+    align-items: center;
+    justify-content: center;
+  }
+
+  ion-select{
+    width: 100%;
+    max-width: 100%;
+  }
+}

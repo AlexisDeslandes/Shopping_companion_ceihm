@@ -1,8 +1,9 @@
 import {Component} from '@angular/core';
-import {AlertController, IonicPage, NavController, NavParams} from 'ionic-angular';
+import {AlertController, App, IonicPage, NavController, NavParams} from 'ionic-angular';
 import {Shopping} from "../../interface/Shopping";
 import {Storage} from "@ionic/storage";
 import {ShoppingList} from "../../interface/ShoppingList";
+import {PriorisationPage} from "../priorisation/priorisation";
 
 /**
  * Generated class for the SearchPage page.
@@ -22,7 +23,8 @@ export class SearchPage {
   search_label: string;
 
   constructor(public navCtrl: NavController, public navParams: NavParams,
-              private storage: Storage, private alert_ctrl: AlertController) {
+              private storage: Storage, private alert_ctrl: AlertController,
+              private app: App) {
 
   }
 
@@ -34,8 +36,8 @@ export class SearchPage {
     this.shopping.filter(this.search_label);
   }
 
-  start_shopping() {
-
+  start_shopping(list: Shopping) {
+    this.app.getRootNav().push(PriorisationPage, {shopping: list});
   }
 
   async delete_shopping(list: Shopping) {

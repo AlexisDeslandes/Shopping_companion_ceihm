@@ -1,7 +1,8 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import {App, IonicPage, NavController, NavParams} from 'ionic-angular';
 import {Shopping} from "../../interface/Shopping";
 import {Storage} from "@ionic/storage";
+import {PriorisationPage} from "../priorisation/priorisation";
 
 /**
  * Generated class for the FavoritePage page.
@@ -19,12 +20,17 @@ export class FavoritePage {
 
   shopping : Shopping[];
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, private storage : Storage) {
+  constructor(public navCtrl: NavController, public navParams: NavParams,
+              private storage : Storage, private app : App) {
 
   }
 
   async ionViewDidLoad() {
     this.shopping = await this.storage.get("shopping");
+  }
+
+  start_shopping(list: Shopping) {
+    this.app.getRootNav().push(PriorisationPage, {shopping: list});
   }
 
 }

@@ -16,6 +16,7 @@ import {ConsultShoppingListPageModule} from "../pages/consult-shopping-list/cons
 import {FavoritePageModule} from "../pages/favorite/favorite.module";
 import {HistoricalsPageModule} from "../pages/historicals/historicals.module";
 import {SearchPageModule} from "../pages/search/search.module";
+import {PriorisationPageModule} from "../pages/priorisation/priorisation.module";
 
 @NgModule({
   declarations: [
@@ -31,6 +32,7 @@ import {SearchPageModule} from "../pages/search/search.module";
     FavoritePageModule,
     HistoricalsPageModule,
     SearchPageModule,
+    PriorisationPageModule,
     IonicStorageModule.forRoot(),
     IonicModule.forRoot(MyApp)
   ],

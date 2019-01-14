@@ -5,7 +5,7 @@
     </ion-row>
     <ion-row>
       <ion-list>
-        <button ion-item="" *ngFor="let list of shopping">
+        <button ion-item="" *ngFor="let list of shopping" (click)="start_shopping(list)">
           <ion-icon item-start="" name="basket" color="primary"></ion-icon>
           <ion-label>{{list.name}}</ion-label>
         </button>

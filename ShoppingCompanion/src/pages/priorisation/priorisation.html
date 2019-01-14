@@ -1,0 +1,25 @@
+<ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <h3 class="white text-center">Shopping companion</h3>
+  </ion-navbar>
+</ion-header>
+
+
+<ion-content padding>
+  <ion-grid>
+    <ion-row class="center">
+      <h3>Options de priorisation</h3>
+    </ion-row>
+    <ion-row class="center">
+      <ion-select [(ngModel)]="priorisation">
+        <ion-option>{{options[0]}}</ion-option>
+        <ion-option>{{options[1]}}</ion-option>
+        <ion-option>{{options[2]}}</ion-option>
+      </ion-select>
+      <button ion-button="">Lancer</button>
+    </ion-row>
+  </ion-grid>
+</ion-content>
