@@ -1,0 +1,21 @@
+<ion-content padding>
+  <ion-grid>
+    <ion-row style="flex:4" class="center">
+      <h3>Rechercher une liste</h3>
+    </ion-row>
+    <ion-row style="flex: 1">
+      <ion-searchbar
+        [(ngModel)]="search_label"
+        (ionInput)="onInput()">
+      </ion-searchbar>
+    </ion-row>
+    <ion-row style="flex: 3;overflow: scroll">
+      <ion-list>
+        <button ion-item="" *ngFor="let list of shopping.shopping_filtered">
+          <ion-icon item-start="" name="basket" color="primary"></ion-icon>
+          <ion-label>{{list.name}}</ion-label>
+        </button>
+      </ion-list>
+    </ion-row>
+  </ion-grid>
+</ion-content>

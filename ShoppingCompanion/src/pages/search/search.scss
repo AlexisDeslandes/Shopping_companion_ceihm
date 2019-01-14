@@ -1,0 +1,19 @@
+page-search {
+  ion-grid {
+    height: 100%;
+  }
+
+  ion-row {
+    flex: 1;
+    flex-direction: row;
+  }
+
+  .center {
+    align-items: center;
+    justify-content: center;
+  }
+
+  ion-list{
+    height: 100px;
+  }
+}

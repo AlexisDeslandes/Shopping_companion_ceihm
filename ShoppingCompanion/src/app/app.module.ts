@@ -12,6 +12,10 @@ import { ShoppingProvider } from '../providers/shopping/shopping';
 import {HttpClient, HttpClientModule} from "@angular/common/http";
 import {SaveShoppingListPageModule} from "../pages/save-shopping-list/save-shopping-list.module";
 import {IonicStorageModule} from "@ionic/storage";
+import {ConsultShoppingListPageModule} from "../pages/consult-shopping-list/consult-shopping-list.module";
+import {FavoritePageModule} from "../pages/favorite/favorite.module";
+import {HistoricalsPageModule} from "../pages/historicals/historicals.module";
+import {SearchPageModule} from "../pages/search/search.module";
 
 @NgModule({
   declarations: [
@@ -23,6 +27,10 @@ import {IonicStorageModule} from "@ionic/storage";
     BrowserModule,
     SaveShoppingListPageModule,
     AddShoppingListPageModule,
+    ConsultShoppingListPageModule,
+    FavoritePageModule,
+    HistoricalsPageModule,
+    SearchPageModule,
     IonicStorageModule.forRoot(),
     IonicModule.forRoot(MyApp)
   ],

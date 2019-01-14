@@ -3,6 +3,7 @@ import { NavController } from 'ionic-angular';
 import {AddShoppingListPage} from "../add-shopping-list/add-shopping-list";
 import {Storage} from "@ionic/storage";
 import {Shopping} from "../../interface/Shopping";
+import {ConsultShoppingListPage} from "../consult-shopping-list/consult-shopping-list";
 
 @Component({
   selector: 'page-home',
@@ -15,11 +16,14 @@ export class HomePage {
   }
 
   async ionViewDidLoad(){
-    const shopping : Shopping[] = await this.storage.get("shopping");
-    console.log(shopping);
+
   }
 
   async navigate_to_add_shopping_list() {
     await this.navCtrl.push(AddShoppingListPage);
+  }
+
+  async navigate_to_shopping_list() {
+    await this.navCtrl.push(ConsultShoppingListPage);
   }
 }

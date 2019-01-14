@@ -1,0 +1,26 @@
+<ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <h3 class="white text-center">Shopping companion</h3>
+  </ion-navbar>
+</ion-header>
+
+
+<ion-content padding>
+  <ion-tabs tabs-only>
+    <ion-tab tabTitle="Favoris" [root]="favorite"></ion-tab>
+    <ion-tab tabTitle="Historiques" [root]="historicals"></ion-tab>
+    <ion-tab tabTitle="Recherche" [root]="search"></ion-tab>
+  </ion-tabs>
+</ion-content>
+
+<!--
+<ion-tabs>
+  <ion-tab color="primary" tabIcon="search">lol</ion-tab>
+  <ion-tab tabIcon="heart"></ion-tab>
+  <ion-tab tabIcon="time"></ion-tab>
+</ion-tabs>
+
+-->
