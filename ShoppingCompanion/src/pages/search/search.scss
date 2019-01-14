@@ -13,7 +13,20 @@ page-search {
     justify-content: center;
   }
 
-  ion-list{
+  ion-list {
     height: 100px;
+  }
+
+  .row-top {
+    flex: 4
+  }
+
+  .row-mid {
+    flex: 1;
+  }
+
+  .row-bot {
+    flex: 3;
+    overflow: scroll;
   }
 }
