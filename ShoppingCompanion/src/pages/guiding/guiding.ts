@@ -52,19 +52,38 @@ export class GuidingPage {
         this._CANVAS.height = this.canvasHeight;
 
         this.initializeCanvas(this.canvasWidth, this.canvasHeight);
-        this.drawCircle();
+
+        const aisleWidth = this._CANVAS.width/3;
+        const aisleHeight = this._CANVAS.height/10;
+        const aisleHorizontalOffset = this._CANVAS.width/9;
+        const aisleVerticalOffset = this._CANVAS.height/12;
+
+        // This is not a loop since the aisles are supposed to be placed manually for actual stores (irregular layouts)
+        this.drawRect(aisleHorizontalOffset, aisleVerticalOffset, aisleWidth, aisleHeight, "#000", "#717171");
+        this.drawRect(aisleHorizontalOffset*2 + aisleWidth, aisleVerticalOffset, aisleWidth, aisleHeight, "#000", "#717171");
+
+        this.drawRect(aisleHorizontalOffset, aisleVerticalOffset*2 + aisleHeight, aisleWidth, aisleHeight, "#000", "#717171");
+        this.drawRect(aisleHorizontalOffset*2 + aisleWidth, aisleVerticalOffset*2 + aisleHeight, aisleWidth, aisleHeight, "#000", "#717171");
+
+        this.drawRect(aisleHorizontalOffset, aisleVerticalOffset*3 + aisleHeight*2, aisleWidth, aisleHeight, "#000", "#717171");
+        this.drawRect(aisleHorizontalOffset*2 + aisleWidth, aisleVerticalOffset*3 + aisleHeight*2, aisleWidth, aisleHeight, "#000", "#717171");
+
+        this.drawRect(aisleHorizontalOffset, aisleVerticalOffset*4 + aisleHeight*3, aisleWidth, aisleHeight, "#000", "#717171");
+        this.drawRect(aisleHorizontalOffset*2 + aisleWidth, aisleVerticalOffset*4 + aisleHeight*3, aisleWidth, aisleHeight, "#000", "#717171");
+
+        this.drawRect(aisleHorizontalOffset, aisleVerticalOffset*5 + aisleHeight*4, aisleWidth, aisleHeight, "#000", "#717171");
+        this.drawRect(aisleHorizontalOffset*2 + aisleWidth, aisleVerticalOffset*5 + aisleHeight*4, aisleWidth, aisleHeight, "#000", "#717171");
+
 
     }
 
-    drawCircle()
+    drawRect(x, y, w, h, c, f)
     {
-        this.clearCanvas();
         this._CONTEXT.beginPath();
-
-        // x, y, radius, startAngle, endAngle
-        this._CONTEXT.arc(this._CANVAS.width/2, this._CANVAS.height/2, 80, 0, 2 * Math.PI);
+        this._CONTEXT.rect(x, y, w, h);
         this._CONTEXT.lineWidth = 1;
-        this._CONTEXT.strokeStyle = '#ffffff';
+        this._CONTEXT.strokeStyle = c;
+        this._CONTEXT.fillStyle = f;
         this._CONTEXT.stroke();
     }
 
@@ -77,8 +96,8 @@ export class GuidingPage {
     setupCanvas()
     {
         this._CONTEXT = this._CANVAS.getContext('2d');
-        this._CONTEXT.fillStyle = "white";
-        this._CONTEXT.fillRect(0, 0, this.canvasHeight, this.canvasWidth);
+        this._CONTEXT.fillStyle = "#fff";
+        this._CONTEXT.fillRect(0, 0, this._CANVAS.width, this._CANVAS.height);
     }
 
     clearCanvas()
