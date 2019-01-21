@@ -18,7 +18,7 @@ import {HistoricalsPageModule} from "../pages/historicals/historicals.module";
 import {SearchPageModule} from "../pages/search/search.module";
 import {PriorisationPageModule} from "../pages/priorisation/priorisation.module";
 import {GuidingPageModule} from "../pages/guiding/guiding.module";
-import {EndGuidingPage} from "../pages/end-guiding/end-guiding";
+import {EndGuidingPageModule} from "../pages/end-guiding/end-guiding.module";
 
 @NgModule({
     declarations: [
@@ -36,7 +36,7 @@ import {EndGuidingPage} from "../pages/end-guiding/end-guiding";
         SearchPageModule,
         PriorisationPageModule,
         GuidingPageModule,
-        EndGuidingPage,
+        EndGuidingPageModule,
         IonicStorageModule.forRoot(),
         IonicModule.forRoot(MyApp)
     ],
