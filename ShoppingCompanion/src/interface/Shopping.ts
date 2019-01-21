@@ -11,4 +11,9 @@ export class Shopping {
   public get_articles() : Article[]{
     return this.articles;
   }
+
+  public length() : number {
+    return this.articles.length;
+  }
+
 }

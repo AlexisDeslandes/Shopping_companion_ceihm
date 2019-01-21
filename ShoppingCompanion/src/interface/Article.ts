@@ -1,10 +1,12 @@
 export class Article {
   public id: number;
   public nom: string;
+  public position: string;
 
-  public constructor(id: number, nom: string) {
+  public constructor(id: number, nom: string, position: string) {
     this.id = id;
     this.nom = nom;
+    this.position = position;
   }
 
   static index_of(articles: Article[], article: Article) {

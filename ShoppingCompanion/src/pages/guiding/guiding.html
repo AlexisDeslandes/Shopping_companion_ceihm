@@ -10,14 +10,16 @@
 
 <ion-content>
   <canvas #canvas></canvas>
-  <ion-row>
-    <button   round (click)="previousItem()">
-      <ion-icon name="arrow-dropleft-circle"></ion-icon>
-    </button>
-    <p>{{currentItem}}</p>
-    <button round (click)="nextItem()">
-      <ion-icon name="arrow-dropright-circle"></ion-icon>
-    </button>
+  <ion-row class="article-nav">
+    <div class="nav-wrapper">
+      <button class="nav-btn nav-btn-prev" round (click)="previousItem()">
+        <ion-icon name="arrow-dropleft-circle"></ion-icon>
+      </button>
+      <h1 class="item-name">{{ currentItem.nom }}</h1>
+      <button class="nav-btn nav-btn-next" round (click)="nextItem()">
+        <ion-icon name="arrow-dropright-circle"></ion-icon>
+      </button>
+    </div>
   </ion-row>
 
 </ion-content>
