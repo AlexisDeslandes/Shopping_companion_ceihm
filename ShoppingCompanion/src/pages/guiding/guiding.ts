@@ -250,12 +250,15 @@ export class GuidingPage {
     }
 
     nextItem() {
-        if (this.itemIndex < this.shopping.length()) {
+        if (this.itemIndex < this.shopping.length()-1) {
             this.itemIndex++;
             this.currentItem = this.shopping.get_articles()[this.itemIndex];
             this.clearCanvas();
             this.drawShop();
             this.drawPath(this.shopping.get_articles()[this.itemIndex-1].position, this.currentItem.position);
+        }
+        if (this.itemIndex === this.shopping.length()-1) {
+            // FINISH
         }
     }
 
@@ -263,6 +266,14 @@ export class GuidingPage {
         if (this.itemIndex > 0) {
             this.itemIndex--;
             this.currentItem = this.shopping.get_articles()[this.itemIndex];
+            this.clearCanvas();
+            this.drawShop();
+            if (this.itemIndex > 0) {
+                this.drawPath(this.shopping.get_articles()[this.itemIndex-1].position, this.currentItem.position);
+            }
+            else {
+                this.drawPath("1:N", this.currentItem.position);
+            }
         }
     }
 

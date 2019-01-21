@@ -28,6 +28,7 @@ ion-content {
         height: 10%;
         position: fixed;
         bottom: 0;
+        z-index: 10000;
       }
       button.nav-btn-prev {
         left: 0;
