@@ -87,19 +87,28 @@ export class GuidingPage {
     }
 
     drawPath(start, end) {
-        let startAisle = start.split(':')[0];
-        let startSide = start.split(':')[1];
-        let endAisle = end.split(':')[0];
-        let endSide = end.split(':')[1];
+        const startAisle = start.split(':')[0];
+        const startSide = start.split(':')[1];
+        const endAisle = end.split(':')[0];
+        const endSide = end.split(':')[1];
 
-        let startConstPoint = this.constPoint(startAisle, startSide);
+        const startConstPoint = this.constPoint(startAisle, startSide);
+        const endConstPoint = this.constPoint(endAisle, endSide);
+
+        const startAlleyPoint = this.alleyPoint(startAisle, startSide);
+        const endAlleyPoint = this.alleyPoint(endAisle, endSide);
 
         this.drawLine(this.exactCoordinates(startAisle, startSide), startConstPoint);
+        this.drawLine(this.exactCoordinates(endAisle, endSide), endConstPoint);
 
+        this.drawLine(startConstPoint, startAlleyPoint);
+        this.drawLine(endConstPoint, endAlleyPoint);
+
+        this.drawLine(startAlleyPoint, endAlleyPoint);
     }
 
     constPoint(aisle, side) {
-        let p = this.exactCoordinates(aisle, side);
+        const p = this.exactCoordinates(aisle, side);
 
         switch (side) {
             case "N":
@@ -113,8 +122,40 @@ export class GuidingPage {
         }
     }
 
+    alleyPoint(aisle, side) {
+        const p = this.exactCoordinates(aisle, side);
+
+        switch (side) {
+            case "N":
+                if (aisle % 2 == 0) {
+                    return [p[0]-this.aisleWidth/2-this.aisleHorizontalOffset/2, p[1]-this.aisleVerticalOffset/2];
+                }
+                else {
+                    return [p[0]+this.aisleWidth/2+this.aisleHorizontalOffset/2, p[1]-this.aisleVerticalOffset/2];
+                }
+            case "S":
+                if (aisle % 2 == 0) {
+                    return [p[0]-this.aisleWidth/2-this.aisleHorizontalOffset/2, p[1]+this.aisleVerticalOffset/2];
+                }
+                else {
+                    return [p[0]+this.aisleWidth/2+this.aisleHorizontalOffset/2, p[1]+this.aisleVerticalOffset/2];
+                }
+            case "E":
+                if (aisle % 2 == 1) {
+                    return [p[0]+this.aisleHorizontalOffset/2, p[1]];
+                }
+                return [0,0];
+            case "W":
+                if (aisle % 2 == 0) {
+                    return [p[0]-this.aisleHorizontalOffset/2, p[1]];
+                }
+                return [0,0];
+        }
+    }
+
+
     exactCoordinates(aisle, side) {
-        let a = this.coordinates[aisle];
+        const a = this.coordinates[aisle];
         return [a[0]+this.offsets[side][0], a[1] + this.offsets[side][1]];
     }
 
@@ -145,8 +186,7 @@ export class GuidingPage {
         this.drawRect(this.coordinates[9][0], this.coordinates[9][1], this.aisleWidth, this.aisleHeight, "#000", "#717171");
         this.drawRect(this.coordinates[10][0], this.coordinates[10][1], this.aisleWidth, this.aisleHeight, "#000", "#717171");
 
-        this.drawPath("1:N", "5:E");
-        this.drawPath("7:S", "10:W");
+        this.drawPath("1:N", "10:W");
 
     }
 
