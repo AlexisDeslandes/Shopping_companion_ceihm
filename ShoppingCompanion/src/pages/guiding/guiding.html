@@ -10,4 +10,14 @@
 
 <ion-content>
   <canvas #canvas></canvas>
+  <ion-row>
+    <button   round (click)="previousItem()">
+      <ion-icon name="arrow-dropleft-circle"></ion-icon>
+    </button>
+    <p>{{currentItem}}</p>
+    <button round (click)="nextItem()">
+      <ion-icon name="arrow-dropright-circle"></ion-icon>
+    </button>
+  </ion-row>
+
 </ion-content>
