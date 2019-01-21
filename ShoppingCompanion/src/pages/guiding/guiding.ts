@@ -106,6 +106,40 @@ export class GuidingPage {
         this.drawLine(endConstPoint, endAlleyPoint);
 
         this.drawLine(startAlleyPoint, endAlleyPoint);
+
+        this.drawArrow(this.exactCoordinates(endAisle, endSide), endSide);
+        this.drawStart(this.exactCoordinates(startAisle, startSide));
+
+    }
+
+    drawStart(pos) {
+        const startSize = this.aisleHeight/10;
+        this._CONTEXT.fillStyle = '#005af1';
+        this._CONTEXT.beginPath();
+        this._CONTEXT.arc(pos[0], pos[1], startSize, 0, 2 * Math.PI);
+        this._CONTEXT.fill();
+    }
+
+    drawArrow(pos, direction) {
+        const arrowSize = this.aisleHeight/5;
+        switch (direction) {
+            case "N":
+                this.drawLine([pos[0], pos[1]], [pos[0]+arrowSize, pos[1]-arrowSize]);
+                this.drawLine([pos[0], pos[1]], [pos[0]-arrowSize, pos[1]-arrowSize]);
+                break;
+            case "W":
+                this.drawLine([pos[0], pos[1]], [pos[0]-arrowSize, pos[1]-arrowSize]);
+                this.drawLine([pos[0], pos[1]], [pos[0]-arrowSize, pos[1]+arrowSize]);
+                break;
+            case "E":
+                this.drawLine([pos[0], pos[1]], [pos[0]+arrowSize, pos[1]-arrowSize]);
+                this.drawLine([pos[0], pos[1]], [pos[0]+arrowSize, pos[1]+arrowSize]);
+                break;
+            case "S":
+                this.drawLine([pos[0], pos[1]], [pos[0]-arrowSize, pos[1]+arrowSize]);
+                this.drawLine([pos[0], pos[1]], [pos[0]+arrowSize, pos[1]+arrowSize]);
+                break;
+        }
     }
 
     constPoint(aisle, side) {
@@ -187,7 +221,7 @@ export class GuidingPage {
         this.drawRect(this.coordinates[9][0], this.coordinates[9][1], this.aisleWidth, this.aisleHeight, "#000", "#717171");
         this.drawRect(this.coordinates[10][0], this.coordinates[10][1], this.aisleWidth, this.aisleHeight, "#000", "#717171");
 
-        this.drawPath("1:N", "10:W");
+        this.drawPath("10:W", "3:S");
 
     }
 
