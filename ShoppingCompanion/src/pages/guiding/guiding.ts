@@ -1,6 +1,8 @@
 import {Component, ElementRef, ViewChild} from '@angular/core';
 import {IonicPage, LoadingController, NavController, NavParams, Platform} from 'ionic-angular';
 import {Shopping} from "../../interface/Shopping";
+import {SaveShoppingListPage} from "../save-shopping-list/save-shopping-list";
+import {EndGuidingPage} from "../end-guiding/end-guiding";
 
 /**
  * Generated class for the GuidingPage page.
@@ -102,9 +104,15 @@ export class GuidingPage {
         this.drawLine(this.exactCoordinates(endAisle, endSide), endConstPoint);
 
         if (startAisle !== endAisle || startSide !== endSide) {
-            this.drawLine(startConstPoint, startAlleyPoint);
-            this.drawLine(endConstPoint, endAlleyPoint);
-            this.drawLine(startAlleyPoint, endAlleyPoint);
+            if (!(startAisle === endAisle-2 && startSide === "S" && endSide === "N") &&
+                !(startAisle === endAisle+2 && startSide === "N" && endSide === "S")) {
+
+                console.log(startAisle, endAisle, startSide, endSide);
+
+                this.drawLine(startConstPoint, startAlleyPoint);
+                this.drawLine(endConstPoint, endAlleyPoint);
+                this.drawLine(startAlleyPoint, endAlleyPoint);
+            }
         }
 
         this.drawArrow(this.exactCoordinates(endAisle, endSide), endSide);
@@ -258,7 +266,7 @@ export class GuidingPage {
             this.drawPath(this.shopping.get_articles()[this.itemIndex-1].position, this.currentItem.position);
         }
         if (this.itemIndex === this.shopping.length()-1) {
-            // FINISH
+            this.navCtrl.push(EndGuidingPage);
         }
     }
 
