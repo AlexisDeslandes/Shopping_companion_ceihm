@@ -19,7 +19,7 @@ export class GuidingPage {
     private shopping: Shopping;
     private priorisation: string;
     private currentItem: any;
-    private itemIndex: 0;
+    private itemIndex = 0;
 
 
     @ViewChild('canvas') canvasElt: ElementRef;
@@ -81,10 +81,9 @@ export class GuidingPage {
             'S': [this.aisleWidth / 2, this.aisleHeight], 'W': [0, this.aisleHeight / 2]
         };
 
-        this.initializeCanvas(this.canvasWidth, this.canvasHeight);
-
+        this.initializeCanvas();
         this.drawShop();
-
+        this.drawPath("1:N", this.currentItem.position);
     }
 
     drawPath(start, end) {
@@ -102,10 +101,11 @@ export class GuidingPage {
         this.drawLine(this.exactCoordinates(startAisle, startSide), startConstPoint);
         this.drawLine(this.exactCoordinates(endAisle, endSide), endConstPoint);
 
-        this.drawLine(startConstPoint, startAlleyPoint);
-        this.drawLine(endConstPoint, endAlleyPoint);
-
-        this.drawLine(startAlleyPoint, endAlleyPoint);
+        if (startAisle !== endAisle || startSide !== endSide) {
+            this.drawLine(startConstPoint, startAlleyPoint);
+            this.drawLine(endConstPoint, endAlleyPoint);
+            this.drawLine(startAlleyPoint, endAlleyPoint);
+        }
 
         this.drawArrow(this.exactCoordinates(endAisle, endSide), endSide);
         this.drawStart(this.exactCoordinates(startAisle, startSide));
@@ -179,12 +179,12 @@ export class GuidingPage {
                 if (aisle % 2 == 1) {
                     return [p[0] + this.aisleHorizontalOffset / 2, p[1]];
                 }
-                return [0, 0];
+                return [p[0] + this.aisleHorizontalOffset / 2, p[1]]; // A CHANGER
             case "W":
                 if (aisle % 2 == 0) {
                     return [p[0] - this.aisleHorizontalOffset / 2, p[1]];
                 }
-                return [0, 0];
+                return [p[0] + this.aisleHorizontalOffset / 2, p[1]]; // A CHANGER
         }
     }
 
@@ -221,8 +221,6 @@ export class GuidingPage {
         this.drawRect(this.coordinates[9][0], this.coordinates[9][1], this.aisleWidth, this.aisleHeight, "#000", "#717171");
         this.drawRect(this.coordinates[10][0], this.coordinates[10][1], this.aisleWidth, this.aisleHeight, "#000", "#717171");
 
-        this.drawPath("10:W", "3:S");
-
     }
 
     drawRect(x, y, w, h, c, f) {
@@ -234,7 +232,7 @@ export class GuidingPage {
         this._CONTEXT.stroke();
     }
 
-    initializeCanvas(width, height) {
+    initializeCanvas() {
         if (this._CANVAS.getContext) {
             this.setupCanvas();
         }
@@ -255,6 +253,9 @@ export class GuidingPage {
         if (this.itemIndex < this.shopping.length()) {
             this.itemIndex++;
             this.currentItem = this.shopping.get_articles()[this.itemIndex];
+            this.clearCanvas();
+            this.drawShop();
+            this.drawPath(this.shopping.get_articles()[this.itemIndex-1].position, this.currentItem.position);
         }
     }
 
