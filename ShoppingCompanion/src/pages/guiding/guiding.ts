@@ -221,22 +221,14 @@ export class GuidingPage {
 
     drawShop() {
 
-        // This is not a loop since the aisles are supposed to be placed manually for actual stores (irregular layouts)
-        this.drawRect(this.coordinates[1][0], this.coordinates[1][1], this.aisleWidth, this.aisleHeight, "#000", "#717171");
-        this.drawRect(this.coordinates[2][0], this.coordinates[2][1], this.aisleWidth, this.aisleHeight, "#000", "#717171");
+        const imgSize = this.aisleHeight/1.5;
 
-        this.drawRect(this.coordinates[3][0], this.coordinates[3][1], this.aisleWidth, this.aisleHeight, "#000", "#717171");
-        this.drawRect(this.coordinates[4][0], this.coordinates[4][1], this.aisleWidth, this.aisleHeight, "#000", "#717171");
+        for (let i = 1; i <= 10; i++) {
+            this.drawRect(this.coordinates[i][0], this.coordinates[i][1], this.aisleWidth, this.aisleHeight, "#000", "#717171");
+            this._CONTEXT.drawImage(document.getElementById("aisleImg"+i),
+                this.coordinates[i][0]+this.aisleWidth/2-imgSize/2, this.coordinates[i][1]+this.aisleHeight/2-imgSize/2, imgSize, imgSize);
 
-        this.drawRect(this.coordinates[5][0], this.coordinates[5][1], this.aisleWidth, this.aisleHeight, "#000", "#717171");
-        this.drawRect(this.coordinates[6][0], this.coordinates[6][1], this.aisleWidth, this.aisleHeight, "#000", "#717171");
-
-        this.drawRect(this.coordinates[7][0], this.coordinates[7][1], this.aisleWidth, this.aisleHeight, "#000", "#717171");
-        this.drawRect(this.coordinates[8][0], this.coordinates[8][1], this.aisleWidth, this.aisleHeight, "#000", "#717171");
-
-        this.drawRect(this.coordinates[9][0], this.coordinates[9][1], this.aisleWidth, this.aisleHeight, "#000", "#717171");
-        this.drawRect(this.coordinates[10][0], this.coordinates[10][1], this.aisleWidth, this.aisleHeight, "#000", "#717171");
-
+        }
     }
 
     drawRect(x, y, w, h, c, f) {
