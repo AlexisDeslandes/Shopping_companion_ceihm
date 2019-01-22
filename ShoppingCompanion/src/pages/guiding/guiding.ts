@@ -104,10 +104,8 @@ export class GuidingPage {
         this.drawLine(this.exactCoordinates(endAisle, endSide), endConstPoint);
 
         if (startAisle !== endAisle || startSide !== endSide) {
-            if (!(startAisle === endAisle-2 && startSide === "S" && endSide === "N") &&
-                !(startAisle === endAisle+2 && startSide === "N" && endSide === "S")) {
-
-                console.log(startAisle, endAisle, startSide, endSide);
+            if (!(parseInt(startAisle) === parseInt(endAisle)-2 && startSide === "S" && endSide === "N") &&
+                !(parseInt(startAisle) === parseInt(endAisle)+2 && startSide === "N" && endSide === "S")) {
 
                 this.drawLine(startConstPoint, startAlleyPoint);
                 this.drawLine(endConstPoint, endAlleyPoint);
