@@ -90,9 +90,19 @@ export class GuidingPage {
 
     drawPath(start, end) {
         const startAisle = start.split(':')[0];
-        const startSide = start.split(':')[1];
+        let startSide = start.split(':')[1];
         const endAisle = end.split(':')[0];
-        const endSide = end.split(':')[1];
+        let endSide = end.split(':')[1];
+
+        // Cheap fix for exterior sides
+        if (parseInt(startAisle) % 2 === 0 && startSide === "E")
+            startSide = "N";
+        if (parseInt(endAisle) % 2 === 0 && endSide === "E")
+            endSide = "N";
+        if (parseInt(startAisle) % 2 === 1 && startSide === "W")
+            startSide = "S";
+        if (parseInt(endAisle) % 2 === 1 && endSide === "W")
+            endSide = "S";
 
         const startConstPoint = this.constPoint(startAisle, startSide);
         const endConstPoint = this.constPoint(endAisle, endSide);
@@ -168,26 +178,26 @@ export class GuidingPage {
 
         switch (side) {
             case "N":
-                if (aisle % 2 == 0) {
+                if (parseInt(aisle) % 2 == 0) {
                     return [p[0] - this.aisleWidth / 2 - this.aisleHorizontalOffset / 2, p[1] - this.aisleVerticalOffset / 2];
                 }
                 else {
                     return [p[0] + this.aisleWidth / 2 + this.aisleHorizontalOffset / 2, p[1] - this.aisleVerticalOffset / 2];
                 }
             case "S":
-                if (aisle % 2 == 0) {
+                if (parseInt(aisle) % 2 == 0) {
                     return [p[0] - this.aisleWidth / 2 - this.aisleHorizontalOffset / 2, p[1] + this.aisleVerticalOffset / 2];
                 }
                 else {
                     return [p[0] + this.aisleWidth / 2 + this.aisleHorizontalOffset / 2, p[1] + this.aisleVerticalOffset / 2];
                 }
             case "E":
-                if (aisle % 2 == 1) {
+                if (parseInt(aisle) % 2 == 1) {
                     return [p[0] + this.aisleHorizontalOffset / 2, p[1]];
                 }
                 return [p[0] + this.aisleHorizontalOffset / 2, p[1]]; // A CHANGER
             case "W":
-                if (aisle % 2 == 0) {
+                if (parseInt(aisle) % 2 == 0) {
                     return [p[0] - this.aisleHorizontalOffset / 2, p[1]];
                 }
                 return [p[0] + this.aisleHorizontalOffset / 2, p[1]]; // A CHANGER
