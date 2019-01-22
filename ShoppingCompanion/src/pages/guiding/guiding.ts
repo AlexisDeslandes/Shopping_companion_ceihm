@@ -256,15 +256,17 @@ export class GuidingPage {
     }
 
     nextItem() {
-        if (this.itemIndex < this.shopping.length()-1) {
+        if (this.itemIndex < this.shopping.length()) {
             this.itemIndex++;
-            this.currentItem = this.shopping.get_articles()[this.itemIndex];
-            this.clearCanvas();
-            this.drawShop();
-            this.drawPath(this.shopping.get_articles()[this.itemIndex-1].position, this.currentItem.position);
-        }
-        if (this.itemIndex === this.shopping.length()-1) {
-            this.navCtrl.push(EndGuidingPage);
+            if (this.itemIndex === this.shopping.length()) {
+                this.navCtrl.push(EndGuidingPage);
+            }
+            else {
+                this.currentItem = this.shopping.get_articles()[this.itemIndex];
+                this.clearCanvas();
+                this.drawShop();
+                this.drawPath(this.shopping.get_articles()[this.itemIndex-1].position, this.currentItem.position);
+            }
         }
     }
 
