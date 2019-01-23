@@ -39,7 +39,11 @@ import {EndGuidingPageModule} from "../pages/end-guiding/end-guiding.module";
         EndGuidingPageModule,
         IonicStorageModule.forRoot(),
         IonicModule.forRoot(MyApp,{
-          backButtonText:""
+          backButtonText:"",
+          tabsHideOnSubPages: true,
+          scrollAssist: false,
+          autoFocusAssist: false,
+          // scrollPadding:true
         })
     ],
     bootstrap: [IonicApp],

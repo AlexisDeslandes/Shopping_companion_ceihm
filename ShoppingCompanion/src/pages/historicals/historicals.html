@@ -1,13 +1,13 @@
-<ion-content padding>
-  <ion-grid>
-    <ion-row class="center">
-      <h3>Dernières listes utilisées</h3>
+<ion-content no-padding>
+  <ion-grid no-padding>
+    <ion-row class="full-center first">
+      <h1>Dernières listes utilisées</h1>
     </ion-row>
-    <ion-row>
+    <ion-row class="second">
       <ion-list>
-        <button ion-item="" *ngFor="let list of shopping" (click)="start_shopping(list)">
-          <ion-icon item-start="" name="basket" color="primary"></ion-icon>
-          <ion-label>{{list.name}}</ion-label>
+        <button color="secondary" ion-item="" *ngFor="let list of shopping" (click)="start_shopping(list)">
+          <ion-icon item-start="" name="basket" color="light"></ion-icon>
+          <ion-label color="light">{{list.name}}</ion-label>
         </button>
       </ion-list>
     </ion-row>

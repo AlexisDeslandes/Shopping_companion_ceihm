@@ -22,4 +22,7 @@ export class EndGuidingPage {
     console.log('ionViewDidLoad EndGuidingPage');
   }
 
+  resetNav() {
+    this.navCtrl.goToRoot({});
+  }
 }

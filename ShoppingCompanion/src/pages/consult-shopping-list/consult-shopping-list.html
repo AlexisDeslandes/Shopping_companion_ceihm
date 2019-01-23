@@ -1,18 +1,15 @@
 <ion-header>
   <ion-navbar>
-    <button ion-button menuToggle>
-      <ion-icon name="menu"></ion-icon>
-    </button>
-    <h3 class="white text-center">Shopping companion</h3>
+    <ion-title>Shopping companion</ion-title>
   </ion-navbar>
 </ion-header>
 
 
-<ion-content padding>
-  <ion-tabs tabs-only>
-    <ion-tab tabTitle="Favoris" [root]="favorite"></ion-tab>
-    <ion-tab tabTitle="Historiques" [root]="historicals"></ion-tab>
-    <ion-tab tabTitle="Recherche" [root]="search"></ion-tab>
+<ion-content no-padding="">
+  <ion-tabs color="primary" tabs-only>
+    <ion-tab tabIcon="heart" [root]="favorite"></ion-tab>
+    <ion-tab tabIcon="time" [root]="historicals"></ion-tab>
+    <ion-tab tabIcon="search" [root]="search"></ion-tab>
   </ion-tabs>
 </ion-content>
 

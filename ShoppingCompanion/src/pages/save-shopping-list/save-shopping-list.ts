@@ -1,4 +1,4 @@
-import {Component} from '@angular/core';
+import {Component, ElementRef, ViewChild} from '@angular/core';
 import {IonicPage, NavController, NavParams} from 'ionic-angular';
 import {Shopping} from "../../interface/Shopping";
 import {Storage} from "@ionic/storage";
@@ -17,6 +17,8 @@ import {Storage} from "@ionic/storage";
 })
 export class SaveShoppingListPage {
 
+  @ViewChild("data") dataTitle : ElementRef;
+
   private shopping: Shopping;
 
   constructor(public navCtrl: NavController, public navParams: NavParams, private storage: Storage) {
@@ -34,5 +36,13 @@ export class SaveShoppingListPage {
     }
     alert("La liste a été enregistrée.");
     await this.navCtrl.goToRoot({})
+  }
+
+  titleDisapear() {
+    this.dataTitle.nativeElement.style.display = "None";
+  }
+
+  titleAppear() {
+    this.dataTitle.nativeElement.style.display = "flex";
   }
 }

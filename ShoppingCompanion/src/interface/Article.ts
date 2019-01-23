@@ -11,7 +11,7 @@ export class Article {
 
   static index_of(articles: Article[], article: Article) {
     for (let i = 0; i < articles.length; i++) {
-      if (articles[i].id === article.id) return i;
+      if (articles[i].nom === article.nom) return i;
     }
     return -1;
   }

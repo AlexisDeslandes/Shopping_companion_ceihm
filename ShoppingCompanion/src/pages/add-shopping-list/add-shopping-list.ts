@@ -1,4 +1,4 @@
-import {Component} from '@angular/core';
+import {Component, ElementRef, ViewChild} from '@angular/core';
 import {IonicPage, NavController, NavParams} from 'ionic-angular';
 import {Article} from "../../interface/Article";
 import {Shopping} from "../../interface/Shopping";
@@ -20,9 +20,14 @@ import {SaveShoppingListPage} from "../save-shopping-list/save-shopping-list";
 })
 export class AddShoppingListPage {
 
+
+  @ViewChild("maListe") myList: ElementRef;
+  @ViewChild("searchResult") searchResult: ElementRef;
+
   articles: Article[];
   my_articles: Article[] = [];
   articles_filtered: Article[];
+  private search: string = "";
 
   constructor(public navCtrl: NavController, private article_provider: ArticleProvider,
               private shopping_provider: ShoppingProvider) {
@@ -30,7 +35,8 @@ export class AddShoppingListPage {
   }
 
   async ionViewDidLoad() {
-    this.articles = await this.article_provider.get();
+    const articles: Article[] = await this.article_provider.get();
+    this.articles = articles.sort((a, b) => a.nom.localeCompare(b.nom));
     this.articles_filtered = JSON.parse(JSON.stringify(this.articles));
   }
 
@@ -43,18 +49,16 @@ export class AddShoppingListPage {
   }
 
   add_to_list(article: Article): void {
-    this.my_articles.push(article);
+    this.my_articles.unshift(article);
     this.articles.splice(Article.index_of(this.articles, article), 1);
     this.articles_filtered.splice(Article.index_of(this.articles_filtered, article), 1);
+    this.make_my_list_appear();
+    this.resetSearch();
   }
 
   remove_from_list(article: Article): void {
     const sort = (articles: Article[]) => {
-      return articles.sort((a, b) => {
-        if (a.nom < b.nom) return -1;
-        else if (a.nom > b.nom) return 1;
-        return 0;
-      });
+      return articles.sort((a, b) => a.nom.localeCompare(b.nom));
     };
     this.my_articles.splice(Article.index_of(this.my_articles, article), 1);
     this.articles.push(article);
@@ -66,5 +70,20 @@ export class AddShoppingListPage {
   async start_shopping(): Promise<void> {
     const shopping: Shopping = new Shopping(this.my_articles);
     await this.navCtrl.push(SaveShoppingListPage, {shopping: shopping});
+  }
+
+  make_my_list_disapear() {
+    this.myList.nativeElement.style.display = "None";
+    this.searchResult.nativeElement.style.height = "50vh";
+  }
+
+  make_my_list_appear() {
+    this.myList.nativeElement.style.display = "block";
+    this.searchResult.nativeElement.style.height = "30vh";
+  }
+
+  resetSearch() {
+    this.search = "";
+    this.articles_filtered = JSON.parse(JSON.stringify(this.articles));
   }
 }

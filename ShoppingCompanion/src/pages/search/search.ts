@@ -1,4 +1,4 @@
-import {Component} from '@angular/core';
+import {Component, ElementRef, ViewChild} from '@angular/core';
 import {AlertController, App, IonicPage, NavController, NavParams} from 'ionic-angular';
 import {Shopping} from "../../interface/Shopping";
 import {Storage} from "@ionic/storage";
@@ -18,6 +18,8 @@ import {PriorisationPage} from "../priorisation/priorisation";
   templateUrl: 'search.html',
 })
 export class SearchPage {
+
+  @ViewChild("data") dataView : ElementRef;
 
   shopping: ShoppingList = new ShoppingList([]);
   search_label: string;
@@ -58,5 +60,13 @@ export class SearchPage {
   private async delete(list: Shopping) {
     this.shopping.delete(list);
     await this.storage.set("shopping", this.shopping.shopping);
+  }
+
+  dataDisapear() {
+    this.dataView.nativeElement.style.display = "None";
+  }
+
+  dataAppear() {
+    this.dataView.nativeElement.style.display = "flex";
   }
 }
