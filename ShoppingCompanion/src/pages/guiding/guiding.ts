@@ -80,7 +80,7 @@ export class GuidingPage {
 
         this.offsets = {
             'N': [this.aisleWidth / 2, 0], 'E': [this.aisleWidth, this.aisleHeight / 2],
-            'S': [this.aisleWidth / 2, this.aisleHeight], 'W': [0, this.aisleHeight / 2]
+            'S': [this.aisleWidth / 2, this.aisleHeight], 'O': [0, this.aisleHeight / 2]
         };
 
         this.initializeCanvas();
@@ -107,9 +107,9 @@ export class GuidingPage {
             startSide = "N";
         if (parseInt(endAisle) % 2 === 0 && endSide === "E")
             endSide = "N";
-        if (parseInt(startAisle) % 2 === 1 && startSide === "W")
+        if (parseInt(startAisle) % 2 === 1 && startSide === "O")
             startSide = "S";
-        if (parseInt(endAisle) % 2 === 1 && endSide === "W")
+        if (parseInt(endAisle) % 2 === 1 && endSide === "O")
             endSide = "S";
 
         const startConstPoint = this.constPoint(startAisle, startSide);
@@ -124,10 +124,12 @@ export class GuidingPage {
         if (startAisle !== endAisle || startSide !== endSide) {
             if (!(parseInt(startAisle) === parseInt(endAisle)-2 && startSide === "S" && endSide === "N") &&
                 !(parseInt(startAisle) === parseInt(endAisle)+2 && startSide === "N" && endSide === "S")) {
-
-                this.drawLine(startConstPoint, startAlleyPoint);
-                this.drawLine(endConstPoint, endAlleyPoint);
-                this.drawLine(startAlleyPoint, endAlleyPoint);
+                if (!(startAisle === "entrance" && endAisle === "1" && endSide === "N"))
+                {
+                    this.drawLine(startConstPoint, startAlleyPoint);
+                    this.drawLine(endConstPoint, endAlleyPoint);
+                    this.drawLine(startAlleyPoint, endAlleyPoint);
+                }
             }
         }
 
@@ -151,7 +153,7 @@ export class GuidingPage {
                 this.drawLine([pos[0], pos[1]], [pos[0]+arrowSize, pos[1]-arrowSize]);
                 this.drawLine([pos[0], pos[1]], [pos[0]-arrowSize, pos[1]-arrowSize]);
                 break;
-            case "W":
+            case "O":
                 this.drawLine([pos[0], pos[1]], [pos[0]-arrowSize, pos[1]-arrowSize]);
                 this.drawLine([pos[0], pos[1]], [pos[0]-arrowSize, pos[1]+arrowSize]);
                 break;
@@ -176,7 +178,7 @@ export class GuidingPage {
                 return [p[0] + this.aisleHorizontalOffset / 2, p[1]];
             case "S":
                 return [p[0], p[1] + this.aisleVerticalOffset / 2];
-            case "W":
+            case "O":
                 return [p[0] - this.aisleHorizontalOffset / 2, p[1]];
             case "entrance":
                 return [p[0] + this.aisleWidth / 2, p[1]];
@@ -206,7 +208,7 @@ export class GuidingPage {
                     return [p[0] + this.aisleHorizontalOffset / 2, p[1]];
                 }
                 return [p[0] + this.aisleHorizontalOffset / 2, p[1]]; // A CHANGER
-            case "W":
+            case "O":
                 if (parseInt(aisle) % 2 == 0) {
                     return [p[0] - this.aisleHorizontalOffset / 2, p[1]];
                 }
