@@ -1,19 +1,54 @@
 .toolbar-background {
-  background-color: #488aff;
+  background-color: map_get($colors,secondary);
 }
 
-.text-center{
-  text-align: center;
-}
-
-ion-icon{
+ion-icon {
   color: white;
 }
 
-.white{
+.white {
   color: white;
 }
 
-.margin-center{
+.margin-center {
   margin: auto;
+}
+
+.full-center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.first {
+  background-color: map_get($colors,primary);
+}
+
+.second {
+  background-color: map_get($colors,secondary);
+}
+
+.flex-1 {
+  display: flex;
+  flex: 1;
+}
+
+.flex-2 {
+  display: flex;
+  flex: 2;
+}
+
+.flex-3 {
+  display: flex;
+  flex: 3;
+}
+
+h1{
+  text-align: center;
+  color: white;
+  font-size: 36px;
+  font-weight: bold;
+  text-shadow: 5px 5px 5px rgba(0,0,0,0.3);
+  //box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }

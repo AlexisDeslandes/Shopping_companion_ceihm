@@ -38,7 +38,9 @@ import {EndGuidingPageModule} from "../pages/end-guiding/end-guiding.module";
         GuidingPageModule,
         EndGuidingPageModule,
         IonicStorageModule.forRoot(),
-        IonicModule.forRoot(MyApp)
+        IonicModule.forRoot(MyApp,{
+          backButtonText:""
+        })
     ],
     bootstrap: [IonicApp],
     entryComponents: [

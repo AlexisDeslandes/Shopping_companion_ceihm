@@ -1,25 +1,22 @@
 <ion-header>
   <ion-navbar>
-    <button ion-button menuToggle>
-      <ion-icon name="menu"></ion-icon>
-    </button>
-    <h3 class="white text-center">Shopping companion</h3>
+    <ion-title>Shopping companion</ion-title>
   </ion-navbar>
 </ion-header>
-
-
-<ion-content padding>
-  <ion-grid>
+<ion-content>
+  <ion-grid no-padding>
     <ion-row>
       <ion-col col-12>
         <ion-card>
 
-          <ion-item color="primary">
+          <ion-item color="secondary">
             <ion-icon item-left name="list"></ion-icon>
             <ion-label>
               Ma liste
             </ion-label>
-            <button item-end ion-button clear color="light" (click)="start_shopping()">Enregistrer</button>
+            <button item-end ion-button icon-only="" color="secondary" (click)="start_shopping()">
+              <ion-icon name="add"></ion-icon>
+            </button>
           </ion-item>
 
 

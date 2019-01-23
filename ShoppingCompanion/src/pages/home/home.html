@@ -1,16 +1,15 @@
-<ion-header>
-  <ion-navbar>
-    <h3 class="white text-center">Shopping companion</h3>
-  </ion-navbar>
-</ion-header>
-
-<ion-content padding>
-  <div>
-    <button ion-button="" (click)="navigate_to_shopping_list()">
-      Mes listes de courses
-    </button>
-    <button ion-button="" (click)="navigate_to_add_shopping_list()">
-      Ajouter une liste de course
-    </button>
-  </div>
+<ion-content>
+  <ion-grid no-padding>
+    <ion-row class="first full-center flex-3">
+      <h1>Shopping</h1>
+      <h1>Companion</h1>
+    </ion-row>
+    <ion-row class="second full-center flex-1">
+      <img src="../../assets/imgs/Shopping-custom.svg" (click)="navigate_to_shopping_list()"/>
+      <img src="../../assets/imgs/Add-custom.svg" (click)="navigate_to_add_shopping_list()"/>
+    </ion-row>
+    <ion-row class="first full-center flex-2">
+      <img style="height: 80%" src="../../assets/imgs/Big.svg"/>
+    </ion-row>
+  </ion-grid>
 </ion-content>

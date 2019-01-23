@@ -1,9 +1,6 @@
 page-home {
 
-  div{
-    display: flex;
-    flex-direction: column;
-    align-content: center;
-    justify-content: center;
+  ion-grid{
+    height: 100%;
   }
 }
