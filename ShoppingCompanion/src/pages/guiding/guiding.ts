@@ -85,13 +85,21 @@ export class GuidingPage {
 
         this.initializeCanvas();
         this.drawShop();
-        this.drawPath("1:N", this.currentItem.position);
+        this.drawPath("entrance", this.currentItem.position);
     }
 
     drawPath(start, end) {
-        const startAisle = start.split(':')[0];
-        let startSide = start.split(':')[1];
-        const endAisle = end.split(':')[0];
+        let startAisle, startSide;
+        if (start !== "entrance")
+        {
+            startAisle = start.split(':')[0];
+            startSide = start.split(':')[1];
+        }
+        else {
+            startAisle = "entrance";
+            startSide = "entrance";
+        }
+        let endAisle = end.split(':')[0];
         let endSide = end.split(':')[1];
 
         // Cheap fix for exterior sides
@@ -170,6 +178,8 @@ export class GuidingPage {
                 return [p[0], p[1] + this.aisleVerticalOffset / 2];
             case "W":
                 return [p[0] - this.aisleHorizontalOffset / 2, p[1]];
+            case "entrance":
+                return [p[0] + this.aisleWidth / 2, p[1]];
         }
     }
 
@@ -201,11 +211,15 @@ export class GuidingPage {
                     return [p[0] - this.aisleHorizontalOffset / 2, p[1]];
                 }
                 return [p[0] + this.aisleHorizontalOffset / 2, p[1]]; // A CHANGER
+            case "entrance":
+                return [p[0] + this.aisleWidth + this.aisleHorizontalOffset/2, p[1]];
         }
     }
 
 
     exactCoordinates(aisle, side) {
+        if (aisle === "entrance")
+            return [5+this.aisleHeight/1.5, 5+this.aisleHeight/3];
         const a = this.coordinates[aisle];
         return [a[0] + this.offsets[side][0], a[1] + this.offsets[side][1]];
     }
@@ -223,11 +237,14 @@ export class GuidingPage {
 
         const imgSize = this.aisleHeight/1.5;
 
+        this._CONTEXT.drawImage(document.getElementById("entrance"),
+            5, 5, imgSize, imgSize);
+
+
         for (let i = 1; i <= 10; i++) {
-            this.drawRect(this.coordinates[i][0], this.coordinates[i][1], this.aisleWidth, this.aisleHeight, "#000", "#717171");
+            this.drawRect(this.coordinates[i][0], this.coordinates[i][1], this.aisleWidth, this.aisleHeight, "#000", "#dadada");
             this._CONTEXT.drawImage(document.getElementById("aisleImg"+i),
                 this.coordinates[i][0]+this.aisleWidth/2-imgSize/2, this.coordinates[i][1]+this.aisleHeight/2-imgSize/2, imgSize, imgSize);
-
         }
     }
 
@@ -237,6 +254,7 @@ export class GuidingPage {
         this._CONTEXT.lineWidth = 1;
         this._CONTEXT.strokeStyle = c;
         this._CONTEXT.fillStyle = f;
+        this._CONTEXT.fill();
         this._CONTEXT.stroke();
     }
 
@@ -282,7 +300,7 @@ export class GuidingPage {
                 this.drawPath(this.shopping.get_articles()[this.itemIndex-1].position, this.currentItem.position);
             }
             else {
-                this.drawPath("1:N", this.currentItem.position);
+                this.drawPath("entrance", this.currentItem.position);
             }
         }
     }
