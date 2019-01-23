@@ -1,5 +1,5 @@
 .toolbar-background {
-  background-color: map_get($colors,secondary);
+  background-color: map_get($colors,primary);
 }
 
 ion-icon {
@@ -19,6 +19,10 @@ ion-icon {
   align-items: center;
   justify-content: center;
   flex-direction: column;
+}
+
+.rowss{
+  flex-direction: row !important;
 }
 
 .first {

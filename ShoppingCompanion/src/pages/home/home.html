@@ -1,15 +1,17 @@
 <ion-content>
-  <ion-grid no-padding>
-    <ion-row class="first full-center flex-3">
+  <ion-grid no-padding="">
+    <ion-row class="first full-center flex-1">
+      <img style="height: 40%" src="../../assets/imgs/Big.svg"/>
       <h1>Shopping</h1>
       <h1>Companion</h1>
     </ion-row>
-    <ion-row class="second full-center flex-1">
-      <img src="../../assets/imgs/Shopping-custom.svg" (click)="navigate_to_shopping_list()"/>
-      <img src="../../assets/imgs/Add-custom.svg" (click)="navigate_to_add_shopping_list()"/>
-    </ion-row>
-    <ion-row class="first full-center flex-2">
-      <img style="height: 80%" src="../../assets/imgs/Big.svg"/>
+    <ion-row class="second full-center flex-1 rowss">
+      <ion-col class="full-center">
+        <img src="../../assets/imgs/Shopping-custom.svg" (click)="navigate_to_shopping_list()"/>
+      </ion-col>
+      <ion-col class="full-center">
+        <img src="../../assets/imgs/Add-custom.svg" (click)="navigate_to_add_shopping_list()"/>
+      </ion-col>
     </ion-row>
   </ion-grid>
 </ion-content>

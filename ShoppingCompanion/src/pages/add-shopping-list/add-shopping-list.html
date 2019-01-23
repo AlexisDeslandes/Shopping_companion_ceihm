@@ -5,7 +5,7 @@
 </ion-header>
 <ion-content>
   <ion-grid (click)="make_my_list_appear()" no-padding>
-    <ion-row>
+    <ion-row class="flex-1">
       <ion-col col-12>
         <ion-card #maListe>
           <ion-item color="secondary">
@@ -31,10 +31,10 @@
 
       </ion-col>
     </ion-row>
-    <ion-row>
+    <ion-row class="flex-1">
       <ion-col col-12>
 
-        <ion-card>
+        <ion-card >
           <ion-searchbar
             [(ngModel)]="search"
             color="primary"
