@@ -242,6 +242,22 @@ export class GuidingPage {
         this._CONTEXT.drawImage(document.getElementById("entrance"),
             5, 5, imgSize, imgSize);
 
+        var tenPercentReducedCanvas = this.canvasHeight - this.getPercent(this.canvasHeight,10);
+
+        this.drawRect(1,1,15,15,"#000","#ffffff");
+        this.drawRect(this.canvasWidth - 16,1,15,15,"#000","#648e59");
+        this.drawRect(1,tenPercentReducedCanvas -  17,15,15,"#000","#a0a0a0");
+        this.drawRect(this.canvasWidth - 16,tenPercentReducedCanvas - 17,15,15,"#000","#8e5959");
+
+        this.drawRect(1,this.aisleVerticalOffset * 2 + (this.aisleHeight/2),15,15,"#000","#4168f4");
+        this.drawRect(1,this.aisleVerticalOffset * 3 + (this.aisleHeight * 1.5) ,15,15,"#000","#f441df");
+        this.drawRect(1,this.aisleVerticalOffset * 4 + this.aisleHeight * 2.5,15,15,"#000","#f4b841");
+        this.drawRect(1,this.aisleVerticalOffset * 5 + this.aisleHeight * 3.5,15,15,"#000","#61f441");
+
+        this.drawRect(this.canvasWidth - 16,this.aisleVerticalOffset * 2 + (this.aisleHeight/2),15,15,"#000","#ffcce2");
+        this.drawRect(this.canvasWidth - 16,this.aisleVerticalOffset * 3 + (this.aisleHeight * 1.5) ,15,15,"#000","#f1f441");
+        this.drawRect(this.canvasWidth - 16,this.aisleVerticalOffset * 4 + this.aisleHeight * 2.5,15,15,"#000","#f44341");
+        this.drawRect(this.canvasWidth - 16,this.aisleVerticalOffset * 5 + this.aisleHeight * 3.5,15,15,"#000","#41f4e8");
 
         for (let i = 1; i <= 10; i++) {
             this.drawRect(this.coordinates[i][0], this.coordinates[i][1], this.aisleWidth, this.aisleHeight, "#000", "#dadada");
@@ -307,5 +323,7 @@ export class GuidingPage {
         }
     }
 
-
+    getPercent(total, percent){
+      return (total * percent)/100;
+  }
 }
