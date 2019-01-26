@@ -39,6 +39,7 @@ ion-content {
 
       h1.item-name {
         top: 50%;
+        font-size: 26px;
         @include transform(translateY(-50%));
         width: 100%;
         display: inline-block;
