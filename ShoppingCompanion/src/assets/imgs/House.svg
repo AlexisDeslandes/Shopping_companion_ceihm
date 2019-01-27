@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="76" height="76" viewBox="0 0 76 76">
+  <defs>
+    <filter id="Rectangle_6" x="0" y="0" width="76" height="76" filterUnits="userSpaceOnUse">
+      <feOffset dx="5" dy="5" input="SourceAlpha"/>
+      <feGaussianBlur stdDeviation="2.5" result="blur"/>
+      <feFlood flood-opacity="0.161"/>
+      <feComposite operator="in" in2="blur"/>
+      <feComposite in="SourceGraphic"/>
+    </filter>
+  </defs>
+  <g id="House" transform="translate(-238.5 -747.5)">
+    <g id="Shopping-custom" transform="translate(125 401)">
+      <g transform="matrix(1, 0, 0, 1, 113.5, 346.5)" filter="url(#Rectangle_6)">
+        <g id="Rectangle_6-2" data-name="Rectangle 6" transform="translate(2.5 2.5)" fill="#1d7ca7" stroke="#fff" stroke-width="2">
+          <rect width="61" height="61" rx="19" stroke="none"/>
+          <rect x="1" y="1" width="59" height="59" rx="18" fill="none"/>
+        </g>
+      </g>
+    </g>
+    <g id="home" transform="translate(245.984 713.276)">
+      <g id="Groupe_13" data-name="Groupe 13" transform="translate(-0.001 46.994)">
+        <path id="Tracé_12" data-name="Tracé 12" d="M83.674,120.939,65.729,135.732a.424.424,0,0,1-.016.093.427.427,0,0,0-.016.093V150.9a2.027,2.027,0,0,0,2,2H79.679V140.912h7.99V152.9H99.652a2.029,2.029,0,0,0,2-2v-14.98a.439.439,0,0,0-.031-.187Z" transform="translate(-58.517 -112.856)" fill="#fff"/>
+        <path id="Tracé_13" data-name="Tracé 13" d="M49.966,66.5l-6.834-5.68V48.087a.962.962,0,0,0-1-1H36.142a.961.961,0,0,0-1,1v6.085l-7.615-6.367a3.871,3.871,0,0,0-4.743,0L.346,66.5A.906.906,0,0,0,0,67.17a1.011,1.011,0,0,0,.218.734l1.935,2.309a1.064,1.064,0,0,0,.655.343,1.16,1.16,0,0,0,.749-.218l21.6-18.008,21.6,18.007a.962.962,0,0,0,.655.218H47.5a1.066,1.066,0,0,0,.655-.343L50.092,67.9a1.01,1.01,0,0,0,.218-.734A.909.909,0,0,0,49.966,66.5Z" transform="translate(0.001 -46.994)" fill="#fff"/>
+      </g>
+    </g>
+  </g>
+</svg>

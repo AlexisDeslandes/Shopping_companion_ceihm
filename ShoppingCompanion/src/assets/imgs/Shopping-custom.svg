@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="76" height="76" viewBox="0 0 76 76">
+  <defs>
+    <filter id="Rectangle_6" x="0" y="0" width="76" height="76" filterUnits="userSpaceOnUse">
+      <feOffset dx="5" dy="5" input="SourceAlpha"/>
+      <feGaussianBlur stdDeviation="2.5" result="blur"/>
+      <feFlood flood-opacity="0.161"/>
+      <feComposite operator="in" in2="blur"/>
+      <feComposite in="SourceGraphic"/>
+    </filter>
+    <filter id="Union_2" x="8.271" y="9.589" width="59.229" height="55.911" filterUnits="userSpaceOnUse">
+      <feOffset dx="5" dy="5" input="SourceAlpha"/>
+      <feGaussianBlur stdDeviation="3" result="blur-2"/>
+      <feFlood flood-opacity="0.161"/>
+      <feComposite operator="in" in2="blur-2"/>
+      <feComposite in="SourceGraphic"/>
+    </filter>
+  </defs>
+  <g id="Shopping-custom" transform="translate(-113.5 -346.5)">
+    <g transform="matrix(1, 0, 0, 1, 113.5, 346.5)" filter="url(#Rectangle_6)">
+      <g id="Rectangle_6-2" data-name="Rectangle 6" transform="translate(2.5 2.5)" fill="#1d7ca7" stroke="#fff" stroke-width="2">
+        <rect width="61" height="61" rx="19" stroke="none"/>
+        <rect x="1" y="1" width="59" height="59" rx="18" fill="none"/>
+      </g>
+    </g>
+    <g transform="matrix(1, 0, 0, 1, 113.5, 346.5)" filter="url(#Union_2)">
+      <path id="Union_2-2" data-name="Union 2" d="M23.017,35.186a2.734,2.734,0,0,1,.073-.629H15.118a2.726,2.726,0,1,1-4.158-1.643L2.712,2.132H-2V.036H4.178L4.311,0,7.13,10.518h32.1L34.673,30.756H12.552l.457,1.7h12.8a2.725,2.725,0,1,1-2.8,2.724Z" transform="translate(14.27 13.59)" fill="#fff"/>
+    </g>
+  </g>
+</svg>
