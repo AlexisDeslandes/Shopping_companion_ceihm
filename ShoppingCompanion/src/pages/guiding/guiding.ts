@@ -108,9 +108,9 @@ export class GuidingPage {
         if (parseInt(endAisle) % 2 === 0 && endSide === "E")
             endSide = "N";
         if (parseInt(startAisle) % 2 === 1 && startSide === "O")
-            startSide = "S";
+            startSide = "N";
         if (parseInt(endAisle) % 2 === 1 && endSide === "O")
-            endSide = "S";
+            endSide = "N";
 
         const startConstPoint = this.constPoint(startAisle, startSide);
         const endConstPoint = this.constPoint(endAisle, endSide);
