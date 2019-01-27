@@ -68,8 +68,12 @@ export class AddShoppingListPage {
   }
 
   async start_shopping(): Promise<void> {
-    const shopping: Shopping = new Shopping(this.my_articles);
-    await this.navCtrl.push(SaveShoppingListPage, {shopping: shopping});
+    if (this.my_articles.length !== 0){
+      const shopping: Shopping = new Shopping(this.my_articles);
+      await this.navCtrl.push(SaveShoppingListPage, {shopping: shopping});
+    }else{
+      alert("Vous n'avez encore sélectionné aucun article");
+    }
   }
 
   make_my_list_disapear() {

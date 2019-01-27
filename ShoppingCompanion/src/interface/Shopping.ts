@@ -7,6 +7,7 @@ export class Shopping {
   constructor(articles : Article[]){
     this.articles = articles;
     this.articles.sort(this.articleCompare);
+    this.name = "";
   }
 
   public get_articles() : Article[]{

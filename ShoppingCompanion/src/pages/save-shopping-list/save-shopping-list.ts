@@ -26,16 +26,20 @@ export class SaveShoppingListPage {
   }
 
   async save_list() {
-    const shopping_string: string = "shopping";
-    const list_shopping: Shopping[] = await this.storage.get(shopping_string);
-    if (list_shopping) {
-      list_shopping.push(this.shopping);
-      await this.storage.set(shopping_string, list_shopping);
-    } else {
-      await this.storage.set(shopping_string, [this.shopping]);
-    }
-    alert("La liste a été enregistrée.");
-    await this.navCtrl.goToRoot({})
+    if (this.shopping.name.length !== 0){
+      const shopping_string: string = "shopping";
+      const list_shopping: Shopping[] = await this.storage.get(shopping_string);
+      if (list_shopping) {
+        list_shopping.push(this.shopping);
+        await this.storage.set(shopping_string, list_shopping);
+      } else {
+        await this.storage.set(shopping_string, [this.shopping]);
+      }
+      alert("La liste a été enregistrée.");
+      await this.navCtrl.goToRoot({})
+    }else{
+
+    }alert("Vous n'avez pas encore donné de nom à la liste.")
   }
 
   titleDisapear() {
