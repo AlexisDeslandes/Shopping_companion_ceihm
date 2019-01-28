@@ -17,7 +17,7 @@ import {Storage} from "@ionic/storage";
 })
 export class SaveShoppingListPage {
 
-  @ViewChild("data") dataTitle : ElementRef;
+  @ViewChild("data") dataTitle: ElementRef;
 
   private shopping: Shopping;
 
@@ -26,7 +26,7 @@ export class SaveShoppingListPage {
   }
 
   async save_list() {
-    if (this.shopping.name.length !== 0){
+    if (this.shopping.name.length !== 0) {
       const shopping_string: string = "shopping";
       const list_shopping: Shopping[] = await this.storage.get(shopping_string);
       if (list_shopping) {
@@ -37,9 +37,9 @@ export class SaveShoppingListPage {
       }
       alert("La liste a été enregistrée.");
       await this.navCtrl.goToRoot({})
-    }else{
-
-    }alert("Vous n'avez pas encore donné de nom à la liste.")
+    } else {
+      alert("Vous n'avez pas encore donné de nom à la liste.")
+    }
   }
 
   titleDisapear() {

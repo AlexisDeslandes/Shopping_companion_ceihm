@@ -1,37 +1,23 @@
 page-search {
-  ion-grid {
+  ion-grid{
     height: 100%;
   }
 
-  ion-row {
+  ion-row{
     flex: 1;
-    flex-direction: row;
+    flex-direction: column;
   }
 
-  .center {
+  .center{
     align-items: center;
     justify-content: center;
   }
 
-  ion-list {
-    height: 100px;
-    width: 100%;
-  }
-
-  .row-top {
-    flex: 4
-  }
-
-  .row-mid {
-    flex: 1;
-  }
-
-  .row-bot {
-    flex: 3;
-    overflow: scroll;
-  }
-
   h1{
+    color: white;
+  }
+
+  p{
     color: white;
   }
 }

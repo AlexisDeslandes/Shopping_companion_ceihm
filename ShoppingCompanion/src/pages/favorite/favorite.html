@@ -2,10 +2,11 @@
   <ion-grid no-padding>
     <ion-row class="full-center first">
       <h1>Listes favorites</h1>
+      <p>Restez appuyer sur une liste pour la supprimer</p>
     </ion-row>
     <ion-row class="second">
       <ion-list>
-        <button color="secondary" ion-item="" *ngFor="let list of shopping" (click)="start_shopping(list)">
+        <button color="secondary" ion-item="" *ngFor="let list of shopping.shopping_filtered" (click)="start_shopping(list)" (press)="delete_shopping(list)">
           <ion-icon item-start="" name="basket" color="light"></ion-icon>
           <ion-label color="light">{{list.name}}</ion-label>
         </button>

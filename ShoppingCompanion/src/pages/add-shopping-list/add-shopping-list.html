@@ -5,15 +5,15 @@
 </ion-header>
 <ion-content>
   <ion-grid (click)="make_my_list_appear()" no-padding>
-    <ion-row class="flex-1">
+    <ion-row class="flex-1" #maListe>
       <ion-col col-12>
-        <ion-card #maListe>
+        <ion-card>
           <ion-item color="secondary">
             <ion-icon item-left name="list"></ion-icon>
             <ion-label>
               Ma liste
             </ion-label>
-            <img style="width: 30px;" item-end="" src="../../assets/imgs/Add-custom.svg" (click)="start_shopping()"/>
+            <img style="width: 30px;" item-end="" src="../../assets/imgs/verified.svg" (click)="start_shopping()"/>
           </ion-item>
 
           <ion-list style="height:30vh;overflow-y: scroll">
@@ -34,7 +34,7 @@
     <ion-row class="flex-1">
       <ion-col col-12>
 
-        <ion-card >
+        <ion-card>
           <ion-searchbar
             [(ngModel)]="search"
             color="primary"
