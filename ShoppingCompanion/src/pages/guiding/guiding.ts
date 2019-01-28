@@ -1,7 +1,6 @@
 import {Component, ElementRef, ViewChild} from '@angular/core';
 import {IonicPage, LoadingController, NavController, NavParams, Platform} from 'ionic-angular';
 import {Shopping} from "../../interface/Shopping";
-import {SaveShoppingListPage} from "../save-shopping-list/save-shopping-list";
 import {EndGuidingPage} from "../end-guiding/end-guiding";
 
 /**
@@ -38,7 +37,7 @@ export class GuidingPage {
     private offsets;
 
     constructor(public navCtrl: NavController, public navParams: NavParams,
-                private loading_ctrl: LoadingController, platform: Platform) {
+                platform: Platform) {
         platform.ready().then((readySource) => {
             this.canvasWidth = platform.width();
             this.canvasHeight = platform.height();
@@ -242,7 +241,7 @@ export class GuidingPage {
         this._CONTEXT.drawImage(document.getElementById("entrance"),
             5, 5, imgSize, imgSize);
 
-        var tenPercentReducedCanvas = this.canvasHeight - this.getPercent(this.canvasHeight,10);
+        let tenPercentReducedCanvas = this.canvasHeight - this.getPercent(this.canvasHeight,10);
 
         this.drawRect(1,1,15,15,"#000","#ffffff");
         this.drawRect(this.canvasWidth - 16,1,15,15,"#000","#648e59");
