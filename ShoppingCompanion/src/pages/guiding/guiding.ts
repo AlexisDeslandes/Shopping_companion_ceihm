@@ -231,7 +231,7 @@ export class GuidingPage {
         this._CONTEXT.moveTo(a[0], a[1]);
         this._CONTEXT.lineTo(b[0], b[1]);
         this._CONTEXT.lineWidth = 3;
-        this._CONTEXT.strokeStyle = '#005af1';
+        this._CONTEXT.strokeStyle = '#1D7CA7';
         this._CONTEXT.stroke();
     }
 
